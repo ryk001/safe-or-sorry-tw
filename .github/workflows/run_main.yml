@@ -24,6 +24,13 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt
       
+      - name: Verify Token
+        run: |
+          if [ -z "${{ secrets.TELEGRAM_TOKEN }}" ]; then
+            echo "Error: TELEGRAM_TOKEN is not set"
+            exit 1
+          fi
+      
       - name: Run Python Code
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}

@@ -5,8 +5,13 @@ import re
 import datetime as dt
 import asyncio
 import os
+import sys
 
-TOKEN = os.environ['TELEGRAM_TOKEN']
+TOKEN = os.environ.get('TELEGRAM_TOKEN')
+if not TOKEN:
+    print("Error: TELEGRAM_TOKEN environment variable is not set", file=sys.stderr)
+    sys.exit(1)
+
 CHANNEL = '@safeorsorrytw'
 
 def get_travel_advisory(country="taiwan"):
@@ -66,11 +71,15 @@ def generate_message(travel_adv:dict):
     return message
 
 async def send_telegram_message(token, channel, text):
-    bot = Bot(token=token)
-    await bot.send_message(chat_id=channel, text=text)
+    try:
+        bot = Bot(token=token)
+        await bot.send_message(chat_id=channel, text=text)
+    except Exception as e:
+        print(f"Error sending telegram message: {str(e)}", file=sys.stderr)
+        sys.exit(1)
 
 async def main():
-    travel_adv = get_travel_advisory('north-korea')
+    travel_adv = get_travel_advisory()
     message = generate_message(travel_adv)
     await send_telegram_message(TOKEN, CHANNEL, message)
 
