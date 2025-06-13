@@ -9,12 +9,17 @@ on:
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
+permissions:
+  contents: write
+
 jobs:
   scrape-latest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -30,6 +35,9 @@ jobs:
             echo "Error: TELEGRAM_TOKEN is not set"
             exit 1
           fi
+      
+      - name: Create data directory
+        run: mkdir -p data
       
       - name: Run Python Code
         env:
