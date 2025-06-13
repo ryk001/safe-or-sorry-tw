@@ -8,7 +8,7 @@ import os
 import sys
 # Telegram Configuration
 TOKEN = os.environ.get('TELEGRAM_TOKEN')
-CHANNEL = '@safeorsorrytw' # '6677853526'
+CHANNEL = '@safeorsorrytw'
 
 def get_travel_advisory(country="taiwan"):
     country = country.lower().replace(' ', '-')
