@@ -7,6 +7,6 @@ __pycache__/ export-ignore
 *.pyc export-ignore
 
 # Mac OS files
-.DS_Store export-ignore
+**/.DS_Store export-ignore
 .AppleDouble export-ignore
 .LSOverride export-ignore
