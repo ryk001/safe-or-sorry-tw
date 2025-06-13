@@ -25,7 +25,7 @@ wheels/
 */.ipynb_checkpoints/*
 
 # macOS
-**/ .DS_Store
+**/.DS_Store
 .AppleDouble
 .LSOverride
 ._*
