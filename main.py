@@ -6,13 +6,7 @@ import datetime as dt
 import asyncio
 import os
 import sys
-
-TOKEN = os.environ.get('TELEGRAM_TOKEN')
-if not TOKEN:
-    print("Error: TELEGRAM_TOKEN environment variable is not set", file=sys.stderr)
-    sys.exit(1)
-
-CHANNEL = '@safeorsorrytw'
+from config import TOKEN, CHANNEL
 
 def get_travel_advisory(country="taiwan"):
     country = country.lower().replace(' ', '-')
@@ -38,14 +32,17 @@ def get_travel_advisory(country="taiwan"):
     except requests.RequestException as e:
         return {"error": f"Error fetching data: {str(e)}"}
 
-def generate_message(travel_adv:dict):
-
+def generate_message(travel_adv:dict, levels_map=None):
+    
+    current_time = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
+    weekday_phrase = '乖乖去上班吧' if current_time.weekday() < 5 else '好好享受假日吧'
+    current_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
     levels_map = {
-        1: '今天很安全，乖乖去上班。',
+        1: f'今天很安全，{weekday_phrase}。',
         2: '🚨🚨 警戒升級！建議提高警覺！',
-        3: '🚨🚨🚨 非常危險！立即採取應對措施！',
-        4: '🚨🚨🚨🚨 極度危險！立即採取應對措施！',
-    }
+        3: '🚨🚨🚨 非常危險！請立即採取應對措施！！！',
+        4: '🚨🚨🚨🚨 極度危險！請立即採取應對措施！！！',
+    } if levels_map is None else levels_map
     reasons_map = {
         "C": "犯罪率",
         "T": "恐怖主義活動",
@@ -56,7 +53,6 @@ def generate_message(travel_adv:dict):
         "D": "不正當拘留",
         "O": "其他",
     }
-    current_time = dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
     message = f"{levels_map[travel_adv['level_num']]}\n\n"
     if travel_adv['reasons']!={}:
         message += f"警戒原因：{'、'.join(reasons_map[k] for k in sorted(travel_adv['reasons'].keys()))}。\n\n"
@@ -78,10 +74,10 @@ async def send_telegram_message(token, channel, text):
         print(f"Error sending telegram message: {str(e)}", file=sys.stderr)
         sys.exit(1)
 
-async def main():
-    travel_adv = get_travel_advisory()
-    message = generate_message(travel_adv)
-    await send_telegram_message(TOKEN, CHANNEL, message)
+# async def main():
+#     travel_adv = get_travel_advisory()
+#     message = generate_message(travel_adv)
+#     await send_telegram_message(TOKEN, CHANNEL, message)
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# if __name__ == "__main__":
+#     asyncio.run(main())

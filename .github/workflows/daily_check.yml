@@ -1,4 +1,4 @@
-name: SafeOrSorryTW
+name: daily_check
 
 on:
   schedule:
@@ -34,4 +34,4 @@ jobs:
       - name: Run Python Code
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        run: python main.py
+        run: python daily_check.py
