@@ -1,4 +1,12 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-** test.ipynb
-*.DS_Store
+
+# Python files
+*.ipynb linguist-documentation
+__pycache__/ export-ignore
+*.pyc export-ignore
+
+# Mac OS files
+.DS_Store export-ignore
+.AppleDouble export-ignore
+.LSOverride export-ignore
