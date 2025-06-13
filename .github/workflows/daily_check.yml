@@ -1,4 +1,4 @@
-name: daily_check
+name: Daily Check
 
 on:
   schedule:
