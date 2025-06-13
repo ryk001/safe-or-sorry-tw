@@ -1,0 +1,30 @@
+name: SafeOrSorryTW
+
+on:
+  schedule:
+  # scheduled at 8, 16, 0am (UTC+8), weekdays
+    - cron: "25 5 * * *"
+  workflow_dispatch:
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+jobs:
+  scrape-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2.0.0
+        with:
+          python-version: '3.10'
+      
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      
+      - name: Run Python Code
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: python main.py
