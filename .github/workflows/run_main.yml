@@ -2,7 +2,7 @@ name: SafeOrSorryTW
 
 on:
   schedule:
-  # scheduled at 8, 16, 0am (UTC+8), weekdays
+  # scheduled at 5:30am (UTC+8), weekdays
     - cron: "25 5 * * *"
   workflow_dispatch:
 
