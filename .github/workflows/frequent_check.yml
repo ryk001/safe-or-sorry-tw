@@ -28,4 +28,14 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
-        run: python frequent_check.py 
+        run: python frequent_check.py
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Commit and push if changed
+        run: |
+          git add data/last_level.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update last level [skip ci]" && git push) 
