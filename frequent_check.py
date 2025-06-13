@@ -1,11 +1,10 @@
-from main import get_travel_advisory, send_telegram_message, generate_message
-import asyncio
-import os
-import sys
-import json
+from main import get_travel_advisory, send_telegram_message, generate_message, TOKEN, CHANNEL
 from pathlib import Path
 import datetime as dt
-from config import TOKEN, CHANNEL
+import asyncio
+import json
+import sys
+import os
 
 STATUS_FILE = Path('data/last_level.json')
 

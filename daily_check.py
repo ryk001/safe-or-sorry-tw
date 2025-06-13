@@ -1,10 +1,8 @@
-from main import get_travel_advisory, send_telegram_message, generate_message
+from main import get_travel_advisory, send_telegram_message, generate_message, TOKEN, CHANNEL
+import datetime as dt
 import asyncio
 import os
 import sys
-import datetime as dt
-
-from config import TOKEN, CHANNEL
 
 async def main():
     travel_adv = get_travel_advisory()

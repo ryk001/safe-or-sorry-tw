@@ -6,7 +6,9 @@ import datetime as dt
 import asyncio
 import os
 import sys
-from config import TOKEN, CHANNEL
+# Telegram Configuration
+TOKEN = os.environ.get('TELEGRAM_TOKEN')
+CHANNEL = '@safeorsorrytw' # '6677853526'
 
 def get_travel_advisory(country="taiwan"):
     country = country.lower().replace(' ', '-')
@@ -73,11 +75,3 @@ async def send_telegram_message(token, channel, text):
     except Exception as e:
         print(f"Error sending telegram message: {str(e)}", file=sys.stderr)
         sys.exit(1)
-
-# async def main():
-#     travel_adv = get_travel_advisory()
-#     message = generate_message(travel_adv)
-#     await send_telegram_message(TOKEN, CHANNEL, message)
-
-# if __name__ == "__main__":
-#     asyncio.run(main())
