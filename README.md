@@ -5,7 +5,7 @@
 
 另外，機器人每 30 分鐘會檢查一次警示等級，如有變化立即通知。
 
-資料來源：[U.S. Department of State - Taiwan Travel Advisory](https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/taiwan-travel-advisory.html)
+資訊來源：[U.S. Department of State - Taiwan Travel Advisory](https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/taiwan-travel-advisory.html)
 
 ## 立即加入頻道
 [@safeorsorrytw](https://t.me/safeorsorrytw)
