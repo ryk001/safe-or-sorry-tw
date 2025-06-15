@@ -6,11 +6,9 @@
 - 每天早上 5:30，它會告訴你今天應該照常去上班，或是...你懂的。
 - 每 30 分鐘檢查一次警示等級，如有變動立即通知。
 
-如果你覺得這個機器人做得不錯，也歡迎你小額贊助🧎: [LINEPAY](https://tinyurl.com/29tdpvw4)
-
-另外，機器人每 30 分鐘會檢查一次警示等級，如有變化立即通知。
-
 資訊來源：[U.S. Department of State - Taiwan Travel Advisory](https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/taiwan-travel-advisory.html)
+
+如果你覺得這個機器人做得不錯，也歡迎你小額贊助🧎: [LINEPAY](https://tinyurl.com/29tdpvw4)
 
 ## 立即加入頻道
 [@safeorsorrytw](https://t.me/safeorsorrytw)
