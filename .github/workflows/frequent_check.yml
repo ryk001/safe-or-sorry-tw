@@ -42,5 +42,5 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git add data/last_level.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update last level [skip ci]" && git push) 
+          git add data/last_level.json data/ait_alert_history.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update alert data [skip ci]" && git push) 
