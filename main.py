@@ -102,7 +102,7 @@ def generate_travel_advisory_message(travel_adv:dict, levels_map=None):
     weekday_phrase = '乖乖去上班吧' if current_time.weekday() < 5 else '好好享受假日吧'
     current_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
     levels_map = {
-        1: f'🟢 今天很安全，{weekday_phrase}。',
+        1: f'今天很安全，{weekday_phrase}。',
         2: f'🟡 警戒升級！建議提高警覺！',
         3: f'🟠🟠🟠 非常危險！請立即採取應對措施！！！',
         4: f'🔴🔴🔴🔴 極度危險！請立即採取應對措施！！！',

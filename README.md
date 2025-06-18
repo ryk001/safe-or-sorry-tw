@@ -11,7 +11,7 @@
 - [U.S. Department of State - Taiwan Travel Advisory](https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/taiwan-travel-advisory.html)
 - [American Institute in Taiwan(AIT) Alert](https://www.ait.org.tw/category/alert/)
 
-如果你希望支持我繼續完善這個機器人，也歡迎你小額贊助🧎: [LINEPAY](https://tinyurl.com/29tdpvw4)
+如果你希望支持我繼續完善這個機器人，也歡迎你請我喝一杯[咖啡](https://portaly.cc/ry_001/support)🧎
 
 ## 立即加入頻道
 [@safeorsorrytw](https://t.me/safeorsorrytw)
