@@ -17,7 +17,7 @@ import os
 STATUS_FILE = Path('data/last_level.json')
 AIT_HISTORY_FILE = Path('data/ait_alert_history.json')
 
-def get_last_level():
+def load_last_level():
     try:
         return json.load(STATUS_FILE.open())['last_level']
     except:
@@ -46,7 +46,7 @@ def save_ait_alert_history(history):
 async def check_travel_advisory():
     travel_adv = get_travel_advisory()
     current_level = travel_adv['level_num']
-    last_level = get_last_level()
+    last_level = load_last_level()
     if current_level != 1 and last_level != current_level:
         levels_map = {
             2: '🚨🚨 警示等級變化！建議提高警覺！',
