@@ -49,9 +49,9 @@ async def check_travel_advisory():
     last_level = load_last_level()
     if current_level != 1 and last_level != current_level:
         levels_map = {
-            2: '🚨🚨 警示等級變化！建議提高警覺！',
-            3: '🚨🚨🚨 警示等級變化！立即採取應對措施！！！',
-            4: '🚨🚨🚨🚨 警示等級變化！立即採取應對措施！！！！',
+            2: '🟡🟡 警示等級變化！建議提高警覺！',
+            3: '🟠🟠🟠 警示等級變化！立即採取應對措施！！！',
+            4: '🔴🔴🔴🔴 警示等級變化！立即採取應對措施！！！！',
         }
         message = generate_travel_advisory_message(travel_adv, levels_map)
         await send_telegram_message(TOKEN, CHANNEL, message)
